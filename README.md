@@ -17,3 +17,6 @@ Spiel: Jump-And-Run (mit Koorperation)
 - Eventhandling mit Tasten
 - Leerzeichen SPRINGEN, Shift für Ducken
 
+GAME-Engine -> phaser.io (Phaser 3)
+http://phaser.io/examples
+- physics und sprites am Anfang ansehen
