@@ -20,3 +20,6 @@ Spiel: Jump-And-Run (mit Koorperation)
 GAME-Engine -> phaser.io (Phaser 3)
 http://phaser.io/examples
 - physics und sprites am Anfang ansehen
+
+Beispiel: http://phaser.io/examples/v3/view/physics/arcade/basic-platform
+später überlegen: Startbildschirm, Highscores, ...
