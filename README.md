@@ -13,7 +13,7 @@ Spiel: Jump-And-Run (mit Koorperation)
  
 - Hintergrund mit Elementen bewegt sich
 - Objekte kommen von oben und unten
-- Spielfigur kann sich Ducken und Hüpfen
+- Spielfigur steht und kann Springen und ducken
 - Eventhandling mit Tasten
 - Leerzeichen SPRINGEN, Shift für Ducken
 
