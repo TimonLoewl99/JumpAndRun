@@ -23,3 +23,9 @@ http://phaser.io/examples
 
 Beispiel: http://phaser.io/examples/v3/view/physics/arcade/basic-platform
 später überlegen: Startbildschirm, Highscores, ...
+
+Phaser-Installation
+Download über git: https://github.com/photonstorm/phaser/tree/v3.55.2
+
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser-arcade-physics.min.js"></script> 
+
