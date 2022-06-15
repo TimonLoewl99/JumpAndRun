@@ -3,3 +3,10 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
