@@ -9,10 +9,11 @@
   </head>
   <body>
     <div class="flexContainer">
-      <h1>Game goes here!</h1>
+      <h1>Joodle Dump goes here!</h1>
+      <div>joodle</joodle>
     </div>
 
-    <script src="/node_modules/phaser/dist/phaser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser-arcade-physics.min.js"></script>
 
     <script>
       var config = {
@@ -37,11 +38,11 @@
         //this.load.setBaseURL("https://labs.phaser.io/");
 
         this.load.image("startscreen", "/assets/startscreenBackground.png");
-        this.load.image("logo", "/assets/doodle.png");
-        this.load.image(
+        this.load.image("doodle", "/assets/doodle.png");
+        /*this.load.image(
           "red",
           "https://labs.phaser.io/assets/particles/red.png"
-        );
+        );*/
       }
 
       function create() {
@@ -55,7 +56,7 @@
           blendMode: "ADD",
         });
 
-        var logo = this.physics.add.image(400, 100, "logo");
+        var logo = this.physics.add.image(400, 100, "doodle");
 
         logo.setVelocity(100, 400);
         logo.setBounce(1, 1);
