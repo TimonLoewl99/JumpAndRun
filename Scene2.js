@@ -5,7 +5,9 @@ class Scene2 extends Phaser.Scene {
 
   preload() {}
 
-  create() {}
+  create() {
+    console.log("Scene2 started!");
+  }
 
   update() {}
 }
