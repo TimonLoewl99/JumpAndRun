@@ -32,6 +32,8 @@
       };
 
       var game = new Phaser.Game(config);
+      var btnBG;
+      var btnTxt;
 
       function preload() {
         this.load.image("startscreen", "/assets/space3.png");
@@ -44,19 +46,21 @@
         //this.add.image(400, 250, "button");
         //this.add.image(400, 250, "btnText");
 
-        this.button = this.add.image(
+        btnBG = this.add.image(
           game.config.width / 2,
           game.config.height / 2,
           "button"
         );
-        this.btnText = this.add.image(
+        btnTxt = this.add.image(
           game.config.width / 2,
           game.config.height / 2,
           "btnText"
         );
-        this.button.setInteractive();
+        btnBG.setInteractive();
         this.input.on("pointerdown", () => {
-          console.log("clicked");
+          console.log("started");
+          btnBG.destroy();
+          btnTxt.destroy();
         });
       }
     </script>
