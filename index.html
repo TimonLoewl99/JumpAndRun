@@ -4,9 +4,65 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JumpAndRun</title>
+    <link rel="stylesheet" href="game.css" />
+    <title>Joodle Dump</title>
   </head>
   <body>
-    <h1>Game goes here!</h1>
+    <div class="flexContainer">
+      <h1>Game goes here!</h1>
+    </div>
+
+    <script src="/node_modules/phaser/dist/phaser.min.js"></script>
+
+    <script>
+      var config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 500,
+        physics: {
+          default: "arcade",
+          arcade: {
+            gravity: { y: 200 },
+          },
+        },
+        scene: {
+          preload: preload,
+          create: create,
+        },
+      };
+
+      var game = new Phaser.Game(config);
+      var btnBG;
+      var btnTxt;
+
+      function preload() {
+        this.load.image("startscreen", "/assets/space3.png");
+        this.load.image("button", "/assets/button-bg.png");
+        this.load.image("btnText", "/assets/button-text.png");
+      }
+
+      function create() {
+        this.add.image(400, 300, "startscreen");
+        //this.add.image(400, 250, "button");
+        //this.add.image(400, 250, "btnText");
+
+        btnBG = this.add.image(
+          game.config.width / 2,
+          game.config.height / 2,
+          "button"
+        );
+        btnTxt = this.add.image(
+          game.config.width / 2,
+          game.config.height / 2,
+          "btnText"
+        );
+        btnBG.setInteractive();
+        this.input.on("pointerdown", () => {
+          console.log("started");
+          btnBG.destroy();
+          btnTxt.destroy();
+        });
+      }
+    </script>
   </body>
 </html>
