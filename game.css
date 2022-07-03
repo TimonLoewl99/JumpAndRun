@@ -12,5 +12,5 @@ body {
 }
 
 div {
-  margin: black;
+  border: 1px solid black;
 }

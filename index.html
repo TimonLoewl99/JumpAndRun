@@ -4,66 +4,77 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="game.css" />
-    <title>Joodle Dump</title>
+    <title>JumpAndRun</title>
   </head>
   <body>
-    <div class="flexContainer">
-      <h1>Joodle Dump goes here!</h1>
-      <div>joodle</joodle>
-    </div>
+<h1>Welcome to Joodle Dump!</h1>
 
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser-arcade-physics.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser-arcade-physics.min.js"></script>
+<script>
+var config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    parent: 'phaser-example',
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+    scene: {
+      preload: preload,
+      create: create,
+      update: update
 
-    <script>
-      var config = {
-        type: Phaser.AUTO,
-        width: 800,
-        height: 600,
-        physics: {
-          default: "arcade",
-          arcade: {
-            gravity: { y: 200 },
-          },
-        },
-        scene: {
-          preload: preload,
-          create: create,
-        },
-      };
+    }
+};
 
-      var game = new Phaser.Game(config);
+var game = new Phaser.Game(config);
+var ship;
 
-      function preload() {
-        //this.load.setBaseURL("https://labs.phaser.io/");
+function preload (){
+//   this.load.image('background','https://labs.phaser.io/assets/pics/fof-background.png%27);
+   this.load.setBaseURL('https://labs.phaser.io/');
 
-        this.load.image("startscreen", "/assets/startscreenBackground.png");
-        this.load.image("doodle", "/assets/doodle.png");
-        /*this.load.image(
-          "red",
-          "https://labs.phaser.io/assets/particles/red.png"
-        );*/
-      }
+    this.load.image('background', 'assets/skies/space3.png');
+    this.load.image('spaceship', 'assets/games/asteroids/ship.png');
+    this.load.image('fire', 'assets/particles/fire3.png');
+ }
 
-      function create() {
-        this.add.image(400, 300, "startscreen");
+function create() {
+   this.add.image(400, 300, 'background'); //400 & 300 = Position
 
-        var particles = this.add.particles("red");
+   ship = this.physics.add.image(400,500, 'spaceship');
+   ship.setImmovable(true);
+   ship.body.allowGravity = false;
+   ship.setVelocityX(-200);
 
-        var emitter = particles.createEmitter({
-          speed: 100,
-          scale: { start: 1, end: 0 },
-          blendMode: "ADD",
-        });
+//Kollision zwischen hinderniss und player
+      //this.physics.add.collider(player, spaceship);
 
-        var logo = this.physics.add.image(400, 100, "doodle");
+  var particles = this.add.particles('fire');
 
-        logo.setVelocity(100, 400);
-        logo.setBounce(1, 1);
-        logo.setCollideWorldBounds(true);
+  var emitter = particles.createEmitter({
+      speed: 100,
+      scale: { start: 0.1, end: 0 },
+      blendMode: 'ADD'
+  });
+  emitter.startFollow(ship);
+}
 
-        emitter.startFollow(logo);
-      }
-    </script>
-  </body>
+function update() {
+  var min = 200;
+  var max = 600;
+  ship.rotation += 0.02;
+
+ if (ship.x <= -10) {
+        ship.x = 800;
+        var randomY = Phaser.Math.Between(min, max);
+        ship.y = randomY;
+  }
+}
+</script>
+</body>
 </html>
